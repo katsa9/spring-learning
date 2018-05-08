@@ -1,6 +1,7 @@
 package com.katsa.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**Using default bean id (tennisCoach) -> class name with first letter lowercase**/
@@ -9,10 +10,8 @@ public class TennisCoach implements Coach {
 	private FortuneService fortuneService;
 
 	
-	/**Configures constructor injection and 'wires' the components together **/
-	@Autowired
-	public TennisCoach(FortuneService theFortuneService) {
-		this.fortuneService = theFortuneService;
+	public TennisCoach() {
+		System.out.println("inside default constructor - tennis coach");
 	}
 
 	@Override
@@ -25,6 +24,16 @@ public class TennisCoach implements Coach {
 		return fortuneService.getFortune();
 	}
 	
+	/**Configures setter injection 
+	 * Using the Autowired annotation on any method will cause it to be used for dependency injection for the class. It doesn't
+	 * need to be a setter method.
+	 * **/
+	@Autowired
+	@Qualifier("happyFortuneService")
+	public void setFortuneService(FortuneService fortuneService) {
+		System.out.println("setting fortune service - tennis coach");
+		this.fortuneService = fortuneService;
+	}
 	
 }
 
