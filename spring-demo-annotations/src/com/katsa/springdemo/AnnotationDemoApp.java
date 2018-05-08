@@ -17,7 +17,7 @@ public class AnnotationDemoApp {
 		System.out.println(rugbyCoach.getDailyWorkout());
 		System.out.println(rugbyCoach.getDailyFortune());
 		System.out.println(squashCoach.getDailyWorkout());
-		System.out.println(rugbyCoach.getDailyFortune());
+		System.out.println(squashCoach.getDailyFortune());
 		context.close();
 	}
 
