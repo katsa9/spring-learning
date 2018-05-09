@@ -16,7 +16,11 @@ public class AnnotationDemoApp {
 		System.out.println(tennisCoach.getDailyFortune());
 		System.out.println(rugbyCoach.getDailyWorkout());
 		System.out.println(rugbyCoach.getDailyFortune());
+		
+		System.out.println("For the squash coach with random fortunes from file: \n");
 		System.out.println(squashCoach.getDailyWorkout());
+		System.out.println(squashCoach.getDailyFortune());
+		System.out.println(squashCoach.getDailyFortune());
 		System.out.println(squashCoach.getDailyFortune());
 		context.close();
 	}

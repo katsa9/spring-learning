@@ -9,6 +9,9 @@
 
 <!-- add entry to enable component scanning -->
 	<context:component-scan base-package="com.katsa.springdemo"></context:component-scan>
+	
+<!-- Load properties file -->	
+	<context:property-placeholder location="classpath:fortunes.properties"/>
  
 </beans>
 

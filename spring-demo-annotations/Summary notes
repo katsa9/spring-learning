@@ -1,0 +1,25 @@
+SUMMARY NOTES
+
+Scopes:
+* By default all beans created are singletons
+* To specify bean scope use the @Scope("singleton") annotation -> 'singleton' is for example
+
+* Singleton scope: reference to the single bean is shared by all things that request it
+* Prototype scope: new object for each request
+
+Context XML file:
+<!-- add entry to enable component scanning -->
+	<context:component-scan base-package="com.katsa.springdemo"></context:component-scan>
+	
+<!-- Load properties file -->	
+	<context:property-placeholder location="classpath:fortunes.properties"/>
+	
+Annotations:
+
+* @Component - causes the bean to be created automatically with default bean id -> class name with first letter lowercase
+* @Autowired - automatic dependency injection
+			 - Can be used for constructors, setters or any method or fields
+			 - field injection happens by using java reflection :/
+			 
+* @Value("${katsa.fortune2}") - > field injection of value from a properties file, it can also be an explicit value.
+* @Qualifier("happyFortuneService") -> Allows you to specify which implementation of a specific interface to inject
