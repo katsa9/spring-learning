@@ -1,5 +1,8 @@
 package com.katsa.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -12,6 +15,11 @@ public class TennisCoach implements Coach {
 	
 	public TennisCoach() {
 		System.out.println("inside default constructor - tennis coach");
+	}
+	
+	@PostConstruct
+	public void doStartupStuff() {
+		System.out.println("Do my startup stuff");
 	}
 
 	@Override
@@ -29,10 +37,15 @@ public class TennisCoach implements Coach {
 	 * need to be a setter method.
 	 * **/
 	@Autowired
-	@Qualifier("happyFortuneService")
+	@Qualifier("fileFortuneService2")
 	public void setFortuneService(FortuneService fortuneService) {
 		System.out.println("setting fortune service - tennis coach");
 		this.fortuneService = fortuneService;
+	}
+	
+	@PreDestroy
+	public void doCleanupStuff() {
+		System.out.println("Do my cleanup stuff");
 	}
 	
 }

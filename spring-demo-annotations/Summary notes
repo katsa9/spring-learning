@@ -4,8 +4,9 @@ Scopes:
 * By default all beans created are singletons
 * To specify bean scope use the @Scope("singleton") annotation -> 'singleton' is for example
 
-* Singleton scope: reference to the single bean is shared by all things that request it
-* Prototype scope: new object for each request
+* Singleton scope: reference to the single bean is shared by all things that request it - only one in the spring container. When you ask for the 
+	bean you get the same reference back.
+* Prototype scope: new object for each request of the bean
 
 Context XML file:
 <!-- add entry to enable component scanning -->
@@ -23,3 +24,14 @@ Annotations:
 			 
 * @Value("${katsa.fortune2}") - > field injection of value from a properties file, it can also be an explicit value.
 * @Qualifier("happyFortuneService") -> Allows you to specify which implementation of a specific interface to inject
+
+@PostConstruct - add to method to be executed just after bean is created
+@PreDestroy - add to method to be called before bean is destroyed - i.e so you can do some cleanup
+
+NOTE!!
+For "prototype" scoped beans, Spring does not call the @PreDestroy method. 
+From Spring docs: In contrast to the other scopes, Spring does not manage the complete lifecycle of a
+prototype bean: the container instantiates, configures, and otherwise assembles a
+prototype object, and hands it to the client, with no further record of that prototype
+instance. 
+

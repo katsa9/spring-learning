@@ -10,7 +10,7 @@ public class SquashCoach implements Coach {
 	 * Field injection - happens using java reflection
 	 */
 	@Autowired
-	@Qualifier("fileRandomFortuneService") // inject specific implementation of fortune service
+	@Qualifier("fileFortuneService2") // inject specific implementation of fortune service
 	private FortuneService fortuneService;
 
 	public SquashCoach() {
