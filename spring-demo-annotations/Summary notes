@@ -33,5 +33,15 @@ For "prototype" scoped beans, Spring does not call the @PreDestroy method.
 From Spring docs: In contrast to the other scopes, Spring does not manage the complete lifecycle of a
 prototype bean: the container instantiates, configures, and otherwise assembles a
 prototype object, and hands it to the client, with no further record of that prototype
-instance. 
+instance.
+* @Bean - used to configure beans via java code in the config file. You need to create methods to expose the bean.
+	The method name will be the bean id. The method name can be anything.
+* @Configuration - causes that java class to be used as the configure file for the spring container. 
+	To read the spring config from a java class use:
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
+* @Qualifier used to specify a specific implementation for dependency injection.
+
+Loading Properties file into Spring config
+* At top of class where its defined as the ocnfiguration add:
+	* @PropertySource(classpath:sport.properties")
 

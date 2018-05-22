@@ -3,9 +3,11 @@ package com.katsa.springdemo;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration //causes this to be the config file for the spring container
 //@ComponentScan("com.katsa.springdemo") // sets up component scanning (Autowired)
+@PropertySource("classpath:sport.properties")
 public class SportConfig {
 	
 	
